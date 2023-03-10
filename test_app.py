@@ -39,12 +39,9 @@ class BoggleAppTestCase(TestCase):
             # The route stores the new game in games dict.
 
             response = client.post('/api/new-game')
-            # breakpoint()
-            # html = response.get_data(as_text=True)
-            data = response.get_json()
-            # print(data["game_id"])
-            # print(data["board"])
-            print(games)
+            breakpoint()
+            html = response.get_data(as_text=True)
+
             self.assertEqual(response.status_code, 200)
             self.assertIn("game_id", data)
             self.assertIn("board", data)
