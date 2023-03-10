@@ -19,7 +19,7 @@ class BoggleAppTestCase(TestCase):
         app.config['TESTING'] = True
 
     def test_homepage(self):
-        """Make sure information is in the session and HTML is displayed"""
+        """Make sure information is in the session and HTML is displayed"""  #TODO: Ask about session
 
         with self.client as client:
             response = client.get('/')
@@ -28,12 +28,23 @@ class BoggleAppTestCase(TestCase):
             # test that you're getting a template
             html = response.get_data(as_text=True)
             self.assertEqual(response.status_code, 200)
-            self.assertIn('<button class="word-input-btn">Go</button>', html)
-            #TODO: find something that is more maleable when testing the html
+            self.assertIn('<!-- Test: Main Boggle Page -->', html)
 
     def test_api_new_game(self):
         """Test starting a new game."""
 
         with self.client as client:
             ...
-            # write a test for this route
+            # Test that: the route returns JSON with a string game id, and a list-of-lists for the board
+            # The route stores the new game in games dict.
+
+            response = client.post('/api/new-game')
+            breakpoint()
+            html = response.get_data(as_text=True)
+
+            self.assertEqual(response.status_code, 200)
+
+
+
+
+

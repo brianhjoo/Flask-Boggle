@@ -33,8 +33,8 @@ class WordList:
         >>> wl = WordList('dictionary.txt')
         >>> wl.check_word('APPLE')
         True
-        #TODO: add a check for something that is obviously not a word
-        (pessimistic test case)
+        >>> wl.check_word('zzzzDDDDDAAV')
+        False
         """
 
 
